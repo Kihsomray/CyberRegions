@@ -1,13 +1,13 @@
-package net.zerotoil.dev.cybertravel;
+package net.zerotoil.dev.cyberregions;
 
 import net.zerotoil.dev.cybercore.CoreSettings;
 import net.zerotoil.dev.cybercore.CyberCore;
 import net.zerotoil.dev.cybercore.utilities.GeneralUtils;
-import net.zerotoil.dev.cybertravel.hook.Hooks;
-import net.zerotoil.dev.cybertravel.cache.Cache;
-import net.zerotoil.dev.cybertravel.command.CTRCommand;
-import net.zerotoil.dev.cybertravel.listener.Events;
-import net.zerotoil.dev.cybertravel.object.PlayerData;
+import net.zerotoil.dev.cyberregions.hook.Hooks;
+import net.zerotoil.dev.cyberregions.cache.Cache;
+import net.zerotoil.dev.cyberregions.command.CRGCommand;
+import net.zerotoil.dev.cyberregions.listener.Events;
+import net.zerotoil.dev.cyberregions.utility.PlayerUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.util.Arrays;
 
-public final class CyberTravel extends JavaPlugin {
+public final class CyberRegions extends JavaPlugin {
 
     private CyberCore core;
 
@@ -67,7 +67,7 @@ public final class CyberTravel extends JavaPlugin {
     private void loadPlugin() {
         reloadPlugin();
         events = new Events(this);
-        new CTRCommand(this);
+        new CRGCommand(this);
     }
 
     public void reloadPlugin() {
@@ -78,7 +78,7 @@ public final class CyberTravel extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        cache.players().unloadPlayers();
+
     }
 
     public CyberCore core() {
@@ -145,12 +145,11 @@ public final class CyberTravel extends JavaPlugin {
     public boolean sendMessage(Player player, String messageKey, String[] placeholders, String... replacements) {
         if (placeholders != null) placeholders = Arrays.copyOf(placeholders, placeholders.length);
         if (replacements != null) replacements = Arrays.copyOf(replacements, replacements.length);
-        PlayerData playerData = cache().players().getPlayer(player);
         core.sendMessage(
                 player,
                 messageKey,
-                player != null ? GeneralUtils.combineArrays(placeholders, playerData.getPlaceholders()) : placeholders,
-                player != null ? GeneralUtils.combineArrays(replacements, playerData.getPlaceholders()) : replacements
+                player != null ? GeneralUtils.combineArrays(placeholders, PlayerUtils.getPlPlaceholders()) : placeholders,
+                player != null ? GeneralUtils.combineArrays(replacements, PlayerUtils.getPlReplacements(player)) : replacements
         );
         return true;
     }

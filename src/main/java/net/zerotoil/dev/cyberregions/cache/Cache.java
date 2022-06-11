@@ -1,16 +1,15 @@
-package net.zerotoil.dev.cybertravel.cache;
+package net.zerotoil.dev.cyberregions.cache;
 
-import net.zerotoil.dev.cybertravel.CyberTravel;
+import net.zerotoil.dev.cyberregions.CyberRegions;
 
 public class Cache {
 
-    final CyberTravel main;
+    final CyberRegions main;
 
     private Config config;
-    private Players players;
     private Regions regions;
 
-    public Cache(CyberTravel main) {
+    public Cache(CyberRegions main) {
         this.main = main;
     }
 
@@ -28,8 +27,6 @@ public class Cache {
         config = new Config(main);
         regions = new Regions(this);
         regions.reloadRegions();
-        players = new Players(this);
-        players.loadPlayers();
 
         if (loadCore) main.core().loadFinish();
 
@@ -52,15 +49,6 @@ public class Cache {
      */
     public Regions regions() {
         return regions;
-    }
-
-    /**
-     * Contains add cache involving players.
-     *
-     * @return Player cache
-     */
-    public Players players() {
-        return players;
     }
 
 }

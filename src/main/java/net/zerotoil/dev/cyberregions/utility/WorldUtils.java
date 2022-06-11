@@ -1,9 +1,7 @@
-package net.zerotoil.dev.cybertravel.utility;
+package net.zerotoil.dev.cyberregions.utility;
 
-import com.sun.javafx.geom.Vec3d;
-import net.zerotoil.dev.cybertravel.cache.Config;
-import net.zerotoil.dev.cybertravel.object.region.Region;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionLocation;
+import net.zerotoil.dev.cyberregions.cache.Config;
+import net.zerotoil.dev.cyberregions.object.region.Region;
 import org.bukkit.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;

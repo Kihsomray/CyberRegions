@@ -1,15 +1,15 @@
-package net.zerotoil.dev.cybertravel.hook;
+package net.zerotoil.dev.cyberregions.hook;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import net.zerotoil.dev.cybertravel.CyberTravel;
+import net.zerotoil.dev.cyberregions.CyberRegions;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
 public class PlaceholderAPI extends PlaceholderExpansion {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
 
-    public PlaceholderAPI(CyberTravel main) {
+    public PlaceholderAPI(CyberRegions main) {
         this.main = main;
         register();
     }

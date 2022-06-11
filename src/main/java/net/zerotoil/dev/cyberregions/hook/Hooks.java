@@ -1,16 +1,16 @@
-package net.zerotoil.dev.cybertravel.hook;
+package net.zerotoil.dev.cyberregions.hook;
 
-import net.zerotoil.dev.cybertravel.CyberTravel;
+import net.zerotoil.dev.cyberregions.CyberRegions;
 import org.bukkit.Bukkit;
 
 public class Hooks {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
     private int counter = 0;
 
     private PlaceholderAPI placeholderAPI;
 
-    public Hooks(CyberTravel main) {
+    public Hooks(CyberRegions main) {
         this.main = main;
         reload();
     }

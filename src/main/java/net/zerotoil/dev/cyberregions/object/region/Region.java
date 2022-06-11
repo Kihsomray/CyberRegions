@@ -1,12 +1,10 @@
-package net.zerotoil.dev.cybertravel.object.region;
+package net.zerotoil.dev.cyberregions.object.region;
 
 import lombok.Getter;
-import net.zerotoil.dev.cybertravel.CyberTravel;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionCommands;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionLocation;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionMessage;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionTeleport;
-import net.zerotoil.dev.cybertravel.utility.WorldUtils;
+import net.zerotoil.dev.cyberregions.CyberRegions;
+import net.zerotoil.dev.cyberregions.object.region.settings.RegionLocation;
+import net.zerotoil.dev.cyberregions.object.region.settings.RegionTeleport;
+import net.zerotoil.dev.cyberregions.utility.WorldUtils;
 import org.bukkit.Location;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.ConfigurationSection;
@@ -15,7 +13,7 @@ import java.util.Arrays;
 
 public class Region {
 
-    @Getter private final CyberTravel main;
+    @Getter private final CyberRegions main;
     @Getter private final String id;
 
     @Getter private boolean enabled = false;
@@ -24,8 +22,6 @@ public class Region {
     @Getter private RegionLocation location;
 
     @Getter private RegionTeleport teleport;
-    @Getter private RegionCommands commands;
-    @Getter private RegionMessage message;
 
     private static final String[] placeholders = new String[]{
             "regionID",
@@ -43,7 +39,7 @@ public class Region {
      * @param main Main instance
      * @param id Config ID of region
      */
-    public Region(CyberTravel main, String id) {
+    public Region(CyberRegions main, String id) {
         this.main = main;
         this.id = id;
         reload();
@@ -60,7 +56,7 @@ public class Region {
      * @param location Region location that is fully set up
      * @throws IllegalArgumentException If region already exists
      */
-    public Region(CyberTravel main, String id, RegionLocation location) {
+    public Region(CyberRegions main, String id, RegionLocation location) {
         this.main = main;
         this.id = id;
 
@@ -127,8 +123,6 @@ public class Region {
 
         // initialize all other region data
         teleport = new RegionTeleport(main, this);
-        commands = new RegionCommands(main, this);
-        message = new RegionMessage(main, this);
     }
 
     /**

@@ -5,14 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.zerotoil.dev</groupId>
-    <artifactId>CyberTravel</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <artifactId>CyberRegions</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>CyberTravel</name>
+    <name>CyberRegions</name>
 
-    <description>Discover regions scattered across your world to be able to quickly travel back to that spot with a command.
-    </description>
+    <description>A region discovery plugin.</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

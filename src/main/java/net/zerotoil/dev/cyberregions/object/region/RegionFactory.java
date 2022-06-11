@@ -1,8 +1,8 @@
-package net.zerotoil.dev.cybertravel.object.region;
+package net.zerotoil.dev.cyberregions.object.region;
 
-import net.zerotoil.dev.cybertravel.CyberTravel;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionLocation;
-import net.zerotoil.dev.cybertravel.utility.WorldUtils;
+import net.zerotoil.dev.cyberregions.CyberRegions;
+import net.zerotoil.dev.cyberregions.object.region.settings.RegionLocation;
+import net.zerotoil.dev.cyberregions.utility.WorldUtils;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 public class RegionFactory {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
     private final HashMap<Player, RegionLocation> playerSetPositions = new HashMap<>();
 
     private DecimalFormat decimalFormat;
@@ -25,7 +25,7 @@ public class RegionFactory {
      *
      * @param main Main instance
      */
-    public RegionFactory(CyberTravel main) {
+    public RegionFactory(CyberRegions main) {
         this.main = main;
         decimalFormat();
     }

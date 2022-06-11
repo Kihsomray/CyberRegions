@@ -1,4 +1,4 @@
-package net.zerotoil.dev.cybertravel.utility;
+package net.zerotoil.dev.cyberregions.utility;
 
 import org.bukkit.configuration.ConfigurationSection;
 

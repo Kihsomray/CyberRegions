@@ -1,11 +1,10 @@
-package net.zerotoil.dev.cybertravel.cache;
+package net.zerotoil.dev.cyberregions.cache;
 
 import lombok.Getter;
-import net.zerotoil.dev.cybertravel.CyberTravel;
-import net.zerotoil.dev.cybertravel.object.PlayerData;
-import net.zerotoil.dev.cybertravel.object.region.Region;
-import net.zerotoil.dev.cybertravel.object.region.RegionFactory;
-import net.zerotoil.dev.cybertravel.object.region.settings.RegionLocation;
+import net.zerotoil.dev.cyberregions.CyberRegions;
+import net.zerotoil.dev.cyberregions.object.region.Region;
+import net.zerotoil.dev.cyberregions.object.region.RegionFactory;
+import net.zerotoil.dev.cyberregions.object.region.settings.RegionLocation;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -15,7 +14,7 @@ import java.util.Map;
 
 public class Regions {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
     private final Cache cache;
 
     private final RegionFactory regionFactory;
@@ -95,23 +94,6 @@ public class Regions {
         }
     }
 
-    public boolean checkRegionDiscovery(Player player) {
-
-        if (!player.hasPermission("cst.player.discover")) return false;
-
-        PlayerData playerData = cache.players().getPlayer(player);
-        boolean discovered = false;
-
-        for (Region region : regions.values()) {
-            if (!region.inRegion(player.getLocation())) continue;
-            if (playerData.isDiscovered(region)) continue;
-            playerData.addRegion(region);
-            discovered = true;
-        }
-
-        return discovered;
-    }
-
     // Checks if a location is within a region
     private boolean inRegion(Location location) {
         for (Region r : regions.values())
@@ -142,7 +124,6 @@ public class Regions {
      */
     public boolean teleportToRegion(Player player, String region) {
         if (!regions.containsKey(region)) return !main.sendMessage(player, "invalid-region", new String[]{"regionID"}, region);
-        if (!cache.players().getPlayer(player).isDiscovered(region)) return !main.sendMessage(player, "not-discovered", new String[]{"regionID"}, region);
         Region r = regions.get(region);
         return r.getTeleport().teleportPlayer(player);
     }

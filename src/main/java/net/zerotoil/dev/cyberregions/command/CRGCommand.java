@@ -1,6 +1,6 @@
-package net.zerotoil.dev.cybertravel.command;
+package net.zerotoil.dev.cyberregions.command;
 
-import net.zerotoil.dev.cybertravel.CyberTravel;
+import net.zerotoil.dev.cyberregions.CyberRegions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,14 +11,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class CTRCommand implements CommandExecutor {
+public class CRGCommand implements CommandExecutor {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
     private final List<String> consoleCommands = Arrays.asList(
             "about",
             "reload");
 
-    public CTRCommand(CyberTravel main) {
+    public CRGCommand(CyberRegions main) {
         this.main = main;
         main.getCommand("ctr").setExecutor(this);
     }
@@ -41,10 +41,9 @@ public class CTRCommand implements CommandExecutor {
             case "about":
             case "version":
                 main.core().getTextUtilities().sendMessageList(sender, Arrays.asList(
-                        "&c&lCyber&f&lTravel &fv" + main.getDescription().getVersion() + "&7.",
+                        "&c&lCyber&f&lRegions &fv" + main.getDescription().getVersion() + "&7.",
                         "&fDeveloped by &c" + main.getAuthors() + "&f.",
-                        "&7Discover regions scattered across your world to",
-                        "&7be able to quickly teleport back to that spot."
+                        "&7Managed regions with a variety of different options."
                 ));
                 return true;
 

@@ -1,10 +1,10 @@
-package net.zerotoil.dev.cybertravel.object.region.settings;
+package net.zerotoil.dev.cyberregions.object.region.settings;
 
 import lombok.Getter;
-import net.zerotoil.dev.cybertravel.CyberTravel;
-import net.zerotoil.dev.cybertravel.cache.Config;
-import net.zerotoil.dev.cybertravel.object.region.Region;
-import net.zerotoil.dev.cybertravel.utility.WorldUtils;
+import net.zerotoil.dev.cyberregions.CyberRegions;
+import net.zerotoil.dev.cyberregions.cache.Config;
+import net.zerotoil.dev.cyberregions.object.region.Region;
+import net.zerotoil.dev.cyberregions.utility.WorldUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.Configuration;
@@ -18,7 +18,7 @@ import java.util.UUID;
 
 public class RegionTeleport {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
     @Getter private final Region region;
 
     @Getter private boolean enabled = false;
@@ -27,7 +27,7 @@ public class RegionTeleport {
 
     @Getter private Map<UUID, Long> cooldowns = new HashMap<>();
 
-    public RegionTeleport(CyberTravel main, Region region) {
+    public RegionTeleport(CyberRegions main, Region region) {
         this.main = main;
         this.region = region;
 

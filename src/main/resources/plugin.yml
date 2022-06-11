@@ -1,17 +1,16 @@
-name: CyberTravel
+name: CyberRegions
 version: '${project.version}'
-main: net.zerotoil.dev.cybertravel.CyberTravel
+main: net.zerotoil.dev.cyberregions.CyberRegions
 api-version: 1.16
 prefix: CTR
 authors: [ Kihsomray ]
-description: Discover regions scattered across your world to be able to quickly travel back to that spot with a command.
+description: A region discovery plugin.
 website: dev.zerotoil.net
 softdepend: [ Vault, PlaceholderAPI, CyberWorldReset ]
 
 commands:
-  ctr:
+  crg:
     aliases:
-      - ctp
-      - ftp
-      - cybertravel
-      - cyberteleport
+      - cregion
+      - cyberregion
+      - cyberrg

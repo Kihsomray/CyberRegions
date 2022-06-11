@@ -1,9 +1,8 @@
-package net.zerotoil.dev.cybertravel.object.region.settings;
+package net.zerotoil.dev.cyberregions.object.region.settings;
 
-import lombok.Getter;
-import net.zerotoil.dev.cybertravel.CyberTravel;
-import net.zerotoil.dev.cybertravel.object.region.Region;
-import net.zerotoil.dev.cybertravel.utility.WorldUtils;
+import net.zerotoil.dev.cyberregions.CyberRegions;
+import net.zerotoil.dev.cyberregions.object.region.Region;
+import net.zerotoil.dev.cyberregions.utility.WorldUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -13,7 +12,7 @@ import java.util.Arrays;
 
 public class RegionLocation {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
     private Region region;
     private boolean binded = false;
 
@@ -21,11 +20,11 @@ public class RegionLocation {
     private double[] upperCorner;
     private double[] lowerCorner;
 
-    public RegionLocation(CyberTravel main) {
+    public RegionLocation(CyberRegions main) {
         this.main = main;
     }
 
-    public RegionLocation(CyberTravel main, Region region, String world, double[] pos1, double[] pos2) {
+    public RegionLocation(CyberRegions main, Region region, String world, double[] pos1, double[] pos2) {
         this.main = main;
         bind(region);
         this.world = world;

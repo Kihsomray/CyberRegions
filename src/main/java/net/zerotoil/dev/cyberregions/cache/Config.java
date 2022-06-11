@@ -1,18 +1,17 @@
-package net.zerotoil.dev.cybertravel.cache;
+package net.zerotoil.dev.cyberregions.cache;
 
 import lombok.Getter;
-import net.zerotoil.dev.cybertravel.CyberTravel;
+import net.zerotoil.dev.cyberregions.CyberRegions;
 import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.configuration.ConfigurationSection;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Config {
 
-    private final CyberTravel main;
+    private final CyberRegions main;
 
     @Getter private boolean autoUpdateConfig;
     @Getter private boolean autoUpdateLang;
@@ -38,7 +37,7 @@ public class Config {
 
     @Getter private boolean debugPlayerJoinLeave;
 
-    public Config(CyberTravel main) {
+    public Config(CyberRegions main) {
         this.main = main;
 
         ConfigurationSection section = main.core().files().getConfig("config").getConfigurationSection("config");
